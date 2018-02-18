@@ -10,16 +10,9 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    let incorporateFix = true
-    
-    var scrollPositionFix: GHSScrollPositionFix?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        if self.incorporateFix {
-            self.scrollPositionFix = GHSScrollPositionFix(scrollView: self.tableView)
-        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,7 +32,6 @@ class TableViewController: UITableViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print("view will transition to \(size.width)x\(size.height)")
         super.viewWillTransition(to: size, with: coordinator)
-        self.scrollPositionFix?.viewWillTransition(to: size, with: coordinator)
     }
 
 }
