@@ -1,6 +1,6 @@
 # iPad Scroll Position Fix
 
-[Radar 37650722](https://openradar.appspot.com/radar?id=5505691045330944) describes the following bug (as of iOS 11.2.5):
+[Radar 37650722](https://openradar.appspot.com/radar?id=5505691045330944) describes the following bug (as of iOS 11.2.6):
 
 1. Create an app with a simple UITableView with enough rows to require scrolling. (I use UITableView as an easy example, but this happens with any UIScrollView.)
 2. Run that app on an iPad.
@@ -9,9 +9,9 @@
 5. Press the home button to leave the app.
 6. Open the app again.
 
-*Expected Results:* I would expect the table view to remain scrolled to the bottom of the list.
+*Expected Results:* I would expect the table view to remain scrolled to the bottom.
 
-*Actual Results:* The table view is no longer scrolled to the bottom of the list.
+*Actual Results:* The table view is no longer scrolled to the bottom.
 
 This project demonstrates the issue. It also includes the code I used to address this in [Unread](https://www.goldenhillsoftware.com/unread/).
 
