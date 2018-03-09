@@ -21,24 +21,24 @@ To incorporate the fix in your app, do the following:
 
 2. Add a GHSScrollPositionFix to your view controller.
 
-````
+```swift
 var scrollPositionFix: GHSScrollPositionFix?
-````
+```
 
 3. In your viewDidLoad method, create the scroll position fix:
 
-````
+```swift
 self.scrollPositionFix = GHSScrollPositionFix(scrollView: self.tableView)
-````
+```
 
 4. Call the viewWillTransition method of scrollPositionFix from the viewWillTransition method of the view controller:
 
-````
+```swift
 override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     super.viewWillTransition(to: size, with: coordinator)
     self.scrollPositionFix?.viewWillTransition(to: size, with: coordinator)
 }
-````
+```
 
 The code can be used from Swift or from Objective-C.
 
