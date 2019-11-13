@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GHSScrollPositionFix: NSObject {
+@objc class GHSScrollPositionFix: NSObject {
 
     let scrollView: UIScrollView
     var scrollPositionInfoBySizeHash: [String:ScrollPositionInfo]
@@ -32,7 +32,7 @@ class GHSScrollPositionFix: NSObject {
                 }, completion: { [weak self] (context) in
                     if let table = self?.scrollView as? UITableView, let indexPath = scrollPositionInfo.indexPathOfLastVisibleRow, let relative = scrollPositionInfo.relativeYOffsetOfLastVisibleRow {
                         if indexPath.section < table.numberOfSections, indexPath.row < table.numberOfRows(inSection: indexPath.section) {
-                            table.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: false)
+                            table.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.middle, animated: false)
                         }
                         var newOffset = table.contentOffset;
                         if let cell = table.cellForRow(at: indexPath) {
