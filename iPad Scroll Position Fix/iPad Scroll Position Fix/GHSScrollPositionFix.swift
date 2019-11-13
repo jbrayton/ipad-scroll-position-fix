@@ -21,8 +21,10 @@ import UIKit
     
     @objc
     func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        let applicationState = UIApplication.shared.applicationState
-        if (applicationState != .background) {
+        guard let activationState = self.scrollView.window?.windowScene?.activationState else {
+            return
+        }
+        if (activationState != .background) {
             self.scrollPositionInfoBySizeHash.removeAll()
         } else {
             let newSizeString = self.hashableString(forSize: size)
